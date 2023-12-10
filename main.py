@@ -45,6 +45,10 @@ async def start(message: types.Message):
     
     await message.answer("Привет! Я бот для записи заметок.", reply_markup=keyboard)
 
+@dp.message_handler(commands=['start'])
+async def start(message: types.Message):
+    await message.answer('Бот позволяет создавать и сохранять заметки, для создания и порспмотра ваших заметок нажмити кнопки на клавиатуре')
+
 @dp.message_handler(lambda message: message.text.lower() == "создать заметку")
 async def add_note_command(message: types.Message):
     await message.answer("Введите заметку:")
